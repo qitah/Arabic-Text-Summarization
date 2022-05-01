@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text summarization</title>
+    {% load static %}
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+
+        
+        }
+        body , html{
+            height: 100%;
+        }
+        body{
+            background-image: url("{% static '/image/81805.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        main{
+            background-color: #88827a;
+            opacity: 50%;
+            width: 50%;
+            height: 90%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-width: 600px;
+            min-height: 500px;
+        }
+        #text{
+            background-color: white;
+            margin-top: 30px;
+            width: 85%;
+            height: 50%;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: justify;
+            overflow: scroll;
+            font-size: large;
+            line-height: 1.6rem;
+            color: black;
+            opacity: 100% !important;
+        
+        }
+        .text::-webkit-scrollbar{
+        display: none;
+        }
+        .file::-webkit-file-upload-button {
+        display: none;
+        }
+
+        
+        form{
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type='file'] {
+        position: relative;
+        overflow: hidden;
+        left: -30%;
+        }
+        
+        .btn{
+            border: dashed black 3px;
+            border-radius: 10px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 40px 70px;
+            font-size: 30px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        #button{
+            padding: 8px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: none;
+            opacity: 90%;
+        }
+
+        @media only screen and (max-width: 391px) {
+            body{
+            background-image: url("{% static '/image/81805.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            }
+            main{
+                width: 360px;
+                height: 90%;
+                min-width: auto;
+                min-height: auto;
+            }
+            form{
+                max-width: 330px;
+            }
+            .btn{
+                max-height: 50px;
+            }
+
+        }
+        
+
+    </style>
+</head>
+
+<body>
+   
+        <main>
+            
+            <form method="post" action="Text" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label class="btn">
+                    <i class="fa fa-image"></i>اختر/اسحب ملفاً لتلخيصه
+                    <input type="file" class="file" style="display: flex; "  name="text" required>
+                </label>
+                <br>
+                <button id="button" type="submit"> تلخيص النص</button>
+              </form>
+                
+                <p class="text" id="text">{{text}}<p>
+                
+            
+        </main>
+
+</body>
+</html>
