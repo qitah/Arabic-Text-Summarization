@@ -3,6 +3,7 @@ import arabic_nlp.arabic_script.elements as ase
 from tashaphyne.stemming import ArabicLightStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import nltk
 import numpy as np
 import scipy as sp 
 import networkx as nx
@@ -10,6 +11,7 @@ from collections import OrderedDict
 import qalsadi.lemmatizer 
 from typing import Coroutine
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+nltk.download("punkt")
 
 @csrf_exempt
 def index(request):
