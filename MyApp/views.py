@@ -3,7 +3,6 @@ import arabic_nlp.arabic_script.elements as ase
 from tashaphyne.stemming import ArabicLightStemmer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-import nltk
 import numpy as np
 import scipy as sp 
 import networkx as nx
