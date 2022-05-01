@@ -10,10 +10,13 @@ import networkx as nx
 from collections import OrderedDict
 import qalsadi.lemmatizer 
 from typing import Coroutine
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
+@csrf_exempt
 def index(request):
     return render(request,"index.html")
 
+@csrf_exempt
 def Text(request):
     if request.method == 'POST':
         upload = request.FILES['text'].read()
